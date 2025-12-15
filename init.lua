@@ -299,6 +299,17 @@ require('lazy').setup({
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
   {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { 'nvim-mini/mini.icons', opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
+  },
+  {
     'folke/flash.nvim',
     event = 'VeryLazy',
     ---@type Flash.Config
@@ -311,7 +322,7 @@ require('lazy').setup({
     },
     keys = {
       {
-        's',
+        '<cr>',
         mode = { 'n', 'x', 'o' },
         function()
           require('flash').jump()
@@ -965,6 +976,15 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+
+      require('mini.move').setup {
+        mappings = {
+          left = 'H',
+          right = 'L',
+          down = 'J',
+          up = 'K',
+        },
+      }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
