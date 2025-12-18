@@ -9,6 +9,7 @@ local rep = require('luasnip.extras').rep
 luasnip.add_snippets('all', {
   s('yl', { t 'Yoneda lemma' }),
   s('ye', { t 'Yoneda embedding' }),
+  s('ef', { t 'Ehrenfeucht-Fra\\"iss\\\'e' }),
 })
 
 -- lhs2Tex related snippets
@@ -20,8 +21,15 @@ luasnip.add_snippets('all', {
 luasnip.add_snippets('all', {
   s('usepackage', fmta('\\usepackage{<>}\n', { i(1, 'amsmath') })),
   s('chapter', fmta('\\chapter{<>}\n', { i(1) })),
+  s('label', fmta('\\label{<>}\n', { i(1) })),
+  s('ref', fmta('\\ref{<>}', { i(1) })),
+  s('eqref', fmta('\\eqref{<>}', { i(1) })),
 })
 
+-- TikZ specific snippets (enabled more broadly for book work)
+luasnip.add_snippets('all', {
+  s('dimensions', fmta('\\coordinate dimensions at(<>,<>);', { i(1), i(2) })),
+})
 -- luasnip.add_snippets('all', {
 --   s('\\be', fmta('\\begin{<>}\n\t<>\n\\end{<>}\n', { i(1, 'equation*'), i(2), rep(1) })),
 -- })
