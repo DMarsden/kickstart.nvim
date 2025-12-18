@@ -1,12 +1,15 @@
 local luasnip = require 'luasnip'
-local fmt = require('luasnip.extras.fmt').fmt
+local fmta = require('luasnip.extras.fmt').fmta
 local s = luasnip.snippet
 local t = luasnip.text_node
 local i = luasnip.insert_node
+local rep = require('luasnip.extras').rep
+
 luasnip.add_snippets('all', {
   s('yl', { t 'Yoneda lemma' }),
   s('ye', { t 'Yoneda embedding' }),
 })
 luasnip.add_snippets('all', {
-  s('%is', fmt('%include TikZ/{}.snip', { i(1) })),
+  s('%is', fmta('%include TikZ/<>.snip', { i(1) })),
+  s('\\be', fmta('\\begin{<>}<>\\end{<>}', { i(1, 'equation*'), i(2), rep(1) })),
 })
