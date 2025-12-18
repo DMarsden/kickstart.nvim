@@ -9,7 +9,7 @@ luasnip.add_snippets('all', {
   s('yl', { t 'Yoneda lemma' }),
   s('ye', { t 'Yoneda embedding' }),
 })
-luasnip.add_snippets('all', {
-  s('%is', fmta('%include TikZ/<>.snip', { i(1) })),
-  s('\\be', fmta('\\begin{<>}\n\t<>\n\\end{<>}\n', { i(1, 'equation*'), i(2), rep(1) })),
-})
+-- luasnip.add_snippets('all', {
+--   s('%is', fmta('%include TikZ/<>.snip', { i(1) })),
+--   s('\\be', fmta('\\begin{<>}\n\t<>\n\\end{<>}\n', { i(1, 'equation*'), i(2), rep(1) })),
+-- })
