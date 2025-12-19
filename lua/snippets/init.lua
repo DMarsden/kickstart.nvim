@@ -24,6 +24,7 @@ luasnip.add_snippets('all', {
   s('label', fmta('\\label{<>}\n', { i(1) })),
   s('ref', fmta('\\ref{<>}', { i(1) })),
   s('eqref', fmta('\\eqref{<>}', { i(1) })),
+  s('bib', fmta('\\bibliographystyle{<>}\n\\bibliography{<>}', { i(1, 'apalike'), i(2) })),
 })
 
 -- TikZ specific snippets (enabled more broadly for book work)
