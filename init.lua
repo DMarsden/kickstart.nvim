@@ -254,6 +254,9 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
   {
+    'voldikss/vim-floaterm',
+  },
+  {
     'mrcjkb/rustaceanvim',
     version = '^6', -- Recommended
     lazy = false,
