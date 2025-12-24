@@ -255,6 +255,9 @@ require('lazy').setup({
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
   {
     'voldikss/vim-floaterm',
+    config = function()
+      vim.keymap.set('n', '<leader>e', ':FloatermNew<cr>')
+    end,
   },
   {
     'mrcjkb/rustaceanvim',
