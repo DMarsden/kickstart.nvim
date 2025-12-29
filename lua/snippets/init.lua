@@ -31,6 +31,3 @@ luasnip.add_snippets('all', {
 luasnip.add_snippets('all', {
   s('dimensions', fmta('\\coordinate dimensions at(<>,<>);', { i(1), i(2) })),
 })
--- luasnip.add_snippets('all', {
---   s('\\be', fmta('\\begin{<>}\n\t<>\n\\end{<>}\n', { i(1, 'equation*'), i(2), rep(1) })),
--- })
