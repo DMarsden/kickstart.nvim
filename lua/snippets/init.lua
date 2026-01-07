@@ -25,6 +25,7 @@ luasnip.add_snippets('all', {
   s('ref', fmta('\\ref{<>}', { i(1) })),
   s('eqref', fmta('\\eqref{<>}', { i(1) })),
   s('bib', fmta('\\bibliographystyle{<>}\n\\bibliography{<>}', { i(1, 'apalike'), i(2) })),
+  s('article', fmta('\\documentclass{article}\n\\author{Dan Marsden}\n\\title{<>}\n\\begin{document}  \\maketitle\n  <>\n\\end{document}\n', { i(1), i(2) })),
 })
 
 -- TikZ specific snippets (enabled more broadly for book work)
