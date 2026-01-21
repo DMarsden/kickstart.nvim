@@ -22,7 +22,7 @@
 
 What is Kickstart?
 
-  Kickstart.nvim is *not* a distribution.
+  Kickstart.nvim is not* a distribution.
 
   Kickstart.nvim is a starting point for your own configuration.
     The goal is that you can read every line of code, top-to-bottom, understand
@@ -253,14 +253,66 @@ rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
-  'xiyaowong/transparent.nvim',
+  {
+    'xiyaowong/transparent.nvim',
+    config = function() -- Optional, you don't have to run setup.
+      require('transparent').setup {
+        -- table: default groups
+        groups = {
+          'Normal',
+          'NormalNC',
+          'Comment',
+          'Constant',
+          'Special',
+          'Identifier',
+          'Statement',
+          'PreProc',
+          'Type',
+          'Underlined',
+          'Todo',
+          'String',
+          'Function',
+          'Conditional',
+          'Repeat',
+          'Operator',
+          'Structure',
+          'LineNr',
+          'NonText',
+          'SignColumn',
+          'CursorLine',
+          'CursorLineNr',
+          'StatusLine',
+          'StatusLineNC',
+          'EndOfBuffer',
+          'NotifyBackground',
+        },
+        -- table: additional groups that should be cleared
+        extra_groups = {
+          'NormalFloat', -- plugins which have float panel such as Lazy, Mason, LspInfo
+          'NvimTreeNormal', -- NvimTree
+        },
+        -- table: groups you don't want to clear
+        exclude_groups = {},
+        -- function: code to be executed after highlight groups are cleared
+        -- Also the user event "TransparentClear" will be triggered
+        on_clear = function() end,
+      }
+    end,
+  },
   {
     'voldikss/vim-floaterm',
     config = function()
       vim.keymap.set('n', '<leader>e', ':FloatermNew<cr>')
     end,
   },
-  -- lazy.nvim
+  {
+    'rcarriga/nvim-notify',
+    config = function()
+      require('notify').setup {
+        background_colour = '#000000',
+      }
+    end,
+  },
   {
     'folke/noice.nvim',
     event = 'VeryLazy',
@@ -389,6 +441,9 @@ require('lazy').setup({
       modes = {
         search = {
           enabled = true,
+        },
+        char = {
+          jump_labels = true,
         },
       },
     },
@@ -1029,7 +1084,7 @@ require('lazy').setup({
     'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
-      vim.cmd.colorscheme 'catppuccin-mocha'
+      vim.cmd.colorscheme 'catppuccin-frappe'
     end,
   },
 
